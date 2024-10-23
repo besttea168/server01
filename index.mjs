@@ -32,6 +32,13 @@ app.get("/", (req, res) => {
   res.send("首頁");
 });
 
+app.get("/api/users/search", (req, res) => {
+  const {id} = req.query;
+  const result = db.data.user.filter(u => u.account.includes(id));
+  const message = `${id} 1111111111111`;
+  res.status(200).json({result: "success", message, data: result});
+});
+
 
 
 
